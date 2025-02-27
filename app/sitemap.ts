@@ -2,7 +2,7 @@ import { documents } from "@/.velite";
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const basePath = process.env.SITE_URL || "https://www.uicart.io";
+  const basePath = process.env.SITE_URL || "https://www.teste";
   const documentSiteMap: {
     url: string;
     lastModified: Date;

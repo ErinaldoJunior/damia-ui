@@ -1,0 +1,18 @@
+{
+  "name": "search-button",
+  "type": "registry:block",
+  "registryDependencies": [
+    "input"
+  ],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "type": "registry:ui",
+      "content": "\"use client\";\nimport { Input } from \"@/components/ui/input\";\n\nimport { Search, X } from \"lucide-react\";\nimport * as React from \"react\";\n\nexport const SearchButton = () => {\n  const [searchFocus, setSearchFocus] = React.useState(false);\n  const inputRef = React.useRef<HTMLInputElement>(null);\n  const [searchItem, setSearchItem] = React.useState<string>(\"\");\n  const [searchInput, setSearchInput] = React.useState(\"\");\n  const [hasSearchFilter, setHasSearchFilter] = React.useState(false);\n\n  React.useEffect(() => {\n    if (searchItem) {\n      setHasSearchFilter(true);\n    }\n  }, [searchItem]);\n\n  React.useEffect(() => {\n    if (!hasSearchFilter) {\n      setSearchItem(\"\");\n      setSearchInput(\"\");\n      setSearchFocus(false);\n    }\n  }, [hasSearchFilter]);\n\n  return (\n    <div\n      className={`${\n        searchFocus ? \"bg-prim-surf-subtle\" : \"bg-input-foreground border\"\n      } flex border-none rounded p-input-field text-sm`}\n      style={{\n        display: \"flex\",\n        flexWrap: \"wrap\",\n        alignItems: \"center\",\n      }}\n      onClick={() => inputRef.current?.focus()}\n    >\n      {searchItem !== \"\" && hasSearchFilter ? (\n        <div className=\"flex items-center px-3 py-[0.45rem] w-fit gap-1 border border-input rounded-md bg-[#EFEFF1]\">\n          <Search className=\"w-4 h-4\" />\n          <p className=\"p-0\">{searchItem}</p>\n          <X\n            className=\"remove w-4 h-4 cursor-pointer\"\n            onClick={() => {\n              setSearchItem(\"\");\n              setSearchFocus(false);\n            }}\n          />\n        </div>\n      ) : (\n        <div className=\"relative\">\n          <Search className=\"absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4\" />\n          <Input\n            className=\"pl-8\"\n            ref={inputRef}\n            value={searchInput}\n            width={searchFocus ? \"158px\" : \"100px\"}\n            onBlur={() => {\n              setSearchItem(searchInput);\n              if (searchInput === \"\") setSearchFocus(false);\n            }}\n            onFocus={() => setSearchFocus(true)}\n            onChange={(e) => {\n              setSearchInput(e.target.value);\n            }}\n            onKeyDown={(e) => {\n              if ([\"Enter\", \",\", \";\", \" \"].includes(e.key)) {\n                e.preventDefault();\n                setSearchItem(searchInput);\n              }\n            }}\n            placeholder={searchItem === \"\" && !hasSearchFilter ? \"Search\" : \"\"}\n          />\n        </div>\n      )}\n    </div>\n  );\n};\n",
+      "path": "ui/search-button.tsx",
+      "target": "components/ui/search-button.tsx"
+    }
+  ]
+}

@@ -1,4 +1,3 @@
-import { Fullscreen } from "lucide-react";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -42,7 +41,7 @@ const config: Config = {
         },
       },
       colors: {
-        background: "hsl(var(--background))",
+        background: "#f2f2f2",
         foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",
@@ -90,6 +89,9 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/container-queries")],
+  plugins: [
+    require("tailwindcss-animate"),
+    require("@tailwindcss/container-queries"),
+  ],
 };
 export default config;

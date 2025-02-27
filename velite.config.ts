@@ -1,7 +1,5 @@
 import { defineConfig, s } from "velite";
 import rehypePrettyCode from "rehype-pretty-code";
-import rehypeShiki from "@shikijs/rehype";
-import rehypeHighlight from "rehype-highlight";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 

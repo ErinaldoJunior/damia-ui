@@ -7,8 +7,6 @@ import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
 import { CommandMenu } from "@/components/command-menu";
 import { Icons } from "@/components/icons";
-import { SEO_METADATA } from "@/constants/seo";
-import { GoogleAnalytics } from "@/components/google-analytics";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -22,10 +20,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  ...SEO_METADATA,
   title: {
     template: "%s | A Library of UI Components and Blocks",
-    default: " UI Cart",
+    default: "Damia Group UI Library",
   },
 };
 
@@ -35,8 +32,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <GoogleAnalytics GA_TRACKING_ID={process.env.GA_TRACKING_ID} />
+    <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
@@ -49,7 +45,11 @@ export default function RootLayout({
                   <CommandMenu />
                 </div>
                 <nav className="flex items-center">
-                  <Link href={"https://github.com/bwestwood11/ui-cart"} target="_blank" rel="noreferrer">
+                  <Link
+                    href={"https://github.com/bwestwood11/ui-cart"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <div
                       className={cn(
                         buttonVariants({
@@ -62,7 +62,11 @@ export default function RootLayout({
                       <span className="sr-only">GitHub</span>
                     </div>
                   </Link>
-                  <Link href={"https://x.com/brett__westwood"} target="_blank" rel="noreferrer">
+                  <Link
+                    href={"https://x.com/brett__westwood"}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <div
                       className={cn(
                         buttonVariants({

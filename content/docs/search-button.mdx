@@ -1,0 +1,47 @@
+---
+title: "Search Button"
+description: "Search Button"
+published: true
+links:
+  - title: "Home"
+    url: "/"
+  - title: "About"
+    url: "/about"
+slug: "search-button"
+---
+
+## Installation
+
+<ComponentPreview name="search-button" shouldExpand={true} />
+
+<Tabs defaultValue="cli">
+
+<TabsList>
+  <TabsTrigger value="cli">CLI</TabsTrigger>
+</TabsList>
+
+<TabsContent value="cli">
+
+```bash
+npx shadcn@latest add https://www.uicart.io/registry/sidebar-01.json
+```
+
+</TabsContent>
+
+</Tabs>
+
+## Usage
+
+```tsx
+import Sidebar1 from "@/components/block/sidebar-01/sidebar-01";
+```
+
+<br />
+```tsx
+<div className="flex gap-2">
+  <Sidebar1 />
+  <main className="flex w-full justify-center text-5xl flex-col">
+    {/* your page content goes here */}
+  </main>
+</div>
+```

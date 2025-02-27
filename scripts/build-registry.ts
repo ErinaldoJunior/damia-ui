@@ -1,10 +1,8 @@
-import { get } from "http";
 import { registryComponents } from "../registry";
 import { promises as fs } from "fs";
 import { z } from "zod";
 import { registryItemFileSchema } from "@/registry/schema";
 import path from "path";
-import React from 'react';
 
 const REGISTRY_BASE_PATH = "registry";
 const PUBLIC_FOLDER_BASE_PATH = "public/registry";

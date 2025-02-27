@@ -6,64 +6,24 @@ export interface DocsConfig {
 }
 
 export const docsConfig: DocsConfig = {
-  mainNav: [
-    {
-      title: "Components",
-      href: "/docs/components/accordion",
-    },
-  ],
+  mainNav: [],
   sidebarNav: [
     {
       title: "Blocks",
       items: [
         {
-          title: "Sidebar-01",
-          href: "/docs/sidebar-01",
-          items: [],
-        },
-        {
-          title: "Sidebar-02",
-          href: "/docs/sidebar-02",
+          title: "Data Table",
+          href: "/docs/data-table",
           items: [],
         },
       ],
     },
     {
-      title: "Bento Grid",
-      items: [
-        {
-          title: "Music Bento Grid",
-          href: "/docs/bento-grid-01",
-          items: [],
-        },
-      ]
-    },
-    {
-      title: "Bento Grid Cards",
-      items: [
-        {
-          title: "Sonic Bento Card",
-          href: "/docs/sonic-bento-card",
-          items: [],
-        },
-        {
-          title: "Animated Design Board",
-          href: "/docs/animated-design-board-bento-card",
-          items: [],
-        },
-      ]
-    },
-    {
       title: "Components",
       items: [
         {
-          title: "Hint",
-          href: "/docs/hint",
-          items: [],
-        },
-        {
-          title: "Animated Button",
-          href: "/docs/animated-button",
+          title: "Search Button",
+          href: "/docs/search-button",
           items: [],
         },
       ],
