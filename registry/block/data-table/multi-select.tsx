@@ -267,45 +267,43 @@ export const MultiSelect = React.forwardRef<
         >
           <Command>
             {(column.columnDef?.meta as { type?: string })?.type !==
-              "actions" &&
-              (column.columnDef?.meta as { type?: string })?.type !==
-                "string" && (
-                <div className="flex justify-start border-b">
-                  <Button
-                    variant="ghost"
-                    onClick={handleSorting}
-                    className="w-full"
-                  >
-                    <span className="text-grey-text-body">
-                      Sort values {""}
-                      {column.getIsSorted() !== false ? (
-                        <span className="text-[#9797A5]">
-                          {column.getIsSorted() === "asc"
-                            ? "(ascending)"
-                            : "(descending)"}
-                        </span>
-                      ) : null}
-                    </span>
+              "actions" && (
+              <div className="flex justify-start border-b">
+                <Button
+                  variant="ghost"
+                  onClick={handleSorting}
+                  className="w-full"
+                >
+                  <span className="text-grey-text-body">
+                    Sort values {""}
+                    {column.getIsSorted() !== false ? (
+                      <span className="text-[#9797A5]">
+                        {column.getIsSorted() === "asc"
+                          ? "(ascending)"
+                          : "(descending)"}
+                      </span>
+                    ) : null}
+                  </span>
 
-                    <span className="flex flex-col gap-0">
-                      <ChevronUpIcon
-                        className={`w-4 h-4 -mb-2.5 ${
-                          column.getIsSorted() === "asc"
-                            ? "text-grey-text-body font-bold"
-                            : "text-grey-border-dis"
-                        }`}
-                      />
-                      <ChevronDownIcon
-                        className={`w-4 h-4 ${
-                          column.getIsSorted() === "desc"
-                            ? "text-grey-text-body font-bold"
-                            : "text-grey-border-dis"
-                        }`}
-                      />
-                    </span>
-                  </Button>
-                </div>
-              )}
+                  <span className="flex flex-col gap-0">
+                    <ChevronUpIcon
+                      className={`w-4 h-4 -mb-2.5 ${
+                        column.getIsSorted() === "asc"
+                          ? "text-grey-text-body font-bold"
+                          : "text-grey-border-dis"
+                      }`}
+                    />
+                    <ChevronDownIcon
+                      className={`w-4 h-4 ${
+                        column.getIsSorted() === "desc"
+                          ? "text-grey-text-body font-bold"
+                          : "text-grey-border-dis"
+                      }`}
+                    />
+                  </span>
+                </Button>
+              </div>
+            )}
 
             {(column.columnDef?.meta as { type?: string })?.type === "date" ? (
               <div>

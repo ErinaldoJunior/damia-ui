@@ -45,11 +45,7 @@ export default function RootLayout({
                   <CommandMenu />
                 </div>
                 <nav className="flex items-center">
-                  <Link
-                    href={"https://github.com/bwestwood11/ui-cart"}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
+                  <Link href={"#"} target="_blank" rel="noreferrer">
                     <div
                       className={cn(
                         buttonVariants({
@@ -60,23 +56,6 @@ export default function RootLayout({
                     >
                       <Icons.gitHub className="h-4 w-4" />
                       <span className="sr-only">GitHub</span>
-                    </div>
-                  </Link>
-                  <Link
-                    href={"https://x.com/brett__westwood"}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <div
-                      className={cn(
-                        buttonVariants({
-                          variant: "ghost",
-                        }),
-                        "h-8 w-8 px-0"
-                      )}
-                    >
-                      <Icons.twitter className="h-3 w-3 fill-current" />
-                      <span className="sr-only">Twitter</span>
                     </div>
                   </Link>
                 </nav>

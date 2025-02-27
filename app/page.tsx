@@ -231,7 +231,7 @@ export default function Home() {
             Browse Components <ArrowTopRightIcon />
           </Link>
           <Link
-            href="https://github.com/bwestwood11/ui-cart"
+            href="#"
             className="bg-foreground justify-center flex gap-2 items-center text-background px-4 py-2 rounded-full text-sm hover:bg-foreground/70"
           >
             <GitHubLogoIcon />

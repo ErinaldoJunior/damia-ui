@@ -18,7 +18,11 @@ export const ui: Registry = [
       "table",
       "skeleton",
     ],
-    dependencies: ["lucide-react", "@tanstack/react-table"],
+    dependencies: [
+      "lucide-react",
+      "@tanstack/react-table",
+      "@radix-ui/react-icons",
+    ],
     files: [
       "block/data-table/data-table.tsx",
       "block/data-table/columns.tsx",

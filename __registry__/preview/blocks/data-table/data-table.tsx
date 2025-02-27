@@ -28,7 +28,7 @@ const data: Payment[] = [
   {
     id: "m5gr84i9",
     amount: 316,
-    status: "success",
+    status: "active",
     notes: "This is a note",
     date: "2022-01-01",
     employee: {
@@ -41,7 +41,7 @@ const data: Payment[] = [
   {
     id: "3u1reuv4",
     amount: 242,
-    status: "success",
+    status: "inactive",
     notes: "This is a note",
     date: "2022-01-01",
     employee: {
@@ -54,7 +54,7 @@ const data: Payment[] = [
   {
     id: "derv1ws0",
     amount: 837,
-    status: "processing",
+    status: "inactive",
     notes: "This is a note",
     date: "2022-01-01",
     employee: {
@@ -67,7 +67,7 @@ const data: Payment[] = [
   {
     id: "5kma53ae",
     amount: 874,
-    status: "success",
+    status: "active",
     notes: "This is a note",
     date: "2022-01-01",
     employee: {
@@ -80,7 +80,7 @@ const data: Payment[] = [
   {
     id: "bhqecj4p",
     amount: 721,
-    status: "failed",
+    status: "inactive",
     notes: "This is a note",
     date: "2022-01-01",
     employee: {
@@ -95,7 +95,7 @@ const data: Payment[] = [
 export type Payment = {
   id: string;
   amount: number;
-  status: "pending" | "processing" | "success" | "failed";
+  status: "active" | "inactive";
   notes: string;
   date: string;
   employee: {
@@ -106,7 +106,7 @@ export type Payment = {
   is_active: boolean;
 };
 
-export default function TableWithColumnFilters() {
+export default function DataTable() {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []

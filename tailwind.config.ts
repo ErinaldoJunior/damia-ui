@@ -41,7 +41,7 @@ const config: Config = {
         },
       },
       colors: {
-        background: "#f2f2f2",
+        background: "#fff",
         foreground: "hsl(var(--foreground))",
         card: {
           DEFAULT: "hsl(var(--card))",

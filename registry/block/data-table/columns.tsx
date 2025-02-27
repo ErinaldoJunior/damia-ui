@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { ColumnDef } from "@tanstack/react-table";
-import { ChevronDown, MoreHorizontal } from "lucide-react";
+import { ChevronDown, MoreHorizontal, Check, XCircle } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -65,9 +65,9 @@ export const columns: ColumnDef<Payment>[] = [
             },
             {
               id: 3,
-              name: "Processing",
-              value: "Processing",
-              label: "Processing",
+              name: "Pending",
+              value: "pending",
+              label: "Pending",
             },
           ]}
         >
@@ -81,7 +81,23 @@ export const columns: ColumnDef<Payment>[] = [
     meta: { type: "select" },
 
     cell: ({ row }) => (
-      <div className="capitalize text-gray-700">{row.getValue("status")}</div>
+      <div className="capitalize text-gray-700">
+        {row.getValue("status") === "active" ? (
+          <div className="flex justify-center w-max py-1.5 px-2 bg-[#29C770] rounded-lg">
+            <p className="text-sm text-white font-semibold text-center">
+              {" "}
+              {row.getValue("status")}
+            </p>
+          </div>
+        ) : (
+          <div className="flex justify-center w-max py-1.5 px-2 bg-[#EA5355] rounded-lg">
+            <p className="text-sm text-white font-semibold text-center">
+              {" "}
+              {row.getValue("status")}
+            </p>
+          </div>
+        )}
+      </div>
     ),
   },
   {
@@ -159,7 +175,13 @@ export const columns: ColumnDef<Payment>[] = [
       );
     },
     cell: ({ row }) => (
-      <div className="lowercase text-gray-700">{row.getValue("date")}</div>
+      <div className="lowercase text-gray-700">
+        {new Date(row.getValue("date")).toLocaleString("en-GB", {
+          day: "numeric",
+          month: "short",
+          year: "numeric",
+        })}
+      </div>
     ),
   },
   {
@@ -177,13 +199,9 @@ export const columns: ColumnDef<Payment>[] = [
     },
     cell: ({ row }) =>
       row.getValue("is_active") ? (
-        <div className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-green-500" />
-        </div>
+        <Check className="h-4 w-4" />
       ) : (
-        <div className="flex items-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-red-500" />
-        </div>
+        <XCircle className="h-4 w-4" />
       ),
   },
   {
@@ -206,7 +224,17 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "amount",
     meta: { type: "number" },
-    header: () => <div className="text-right">Amount</div>,
+
+    header: ({ column, table }) => {
+      return (
+        <ColumnFilter column={column} table={table}>
+          <Button className="p-0 text-body-large gap-2.5" variant="ghost">
+            <span>Amount</span>
+            <ChevronDown className="h-4 w-4" />
+          </Button>
+        </ColumnFilter>
+      );
+    },
     cell: ({ row }) => {
       const amount = parseFloat(row.getValue("amount"));
 
@@ -216,7 +244,7 @@ export const columns: ColumnDef<Payment>[] = [
         currency: "USD",
       }).format(amount);
 
-      return <div className="text-right text-gray-700">{formatted}</div>;
+      return <div className="text-start text-gray-700">{formatted}</div>;
     },
   },
   {
